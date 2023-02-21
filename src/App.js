@@ -24,7 +24,7 @@ function App() {
       setAlert(null);
     }, 1500);
   }
-
+  //this i comment
   const toggleMode = () => {
     if (mode === 'light') {
       setMode('dark');
