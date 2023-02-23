@@ -1,32 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 
-export default function About() {
-  const [mystyle, setmystyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  })
+ export default function About(props) {
+//   const [mystyle, setmystyle] = useState({
+//     color: "black",
+//     backgroundColor: "white",
+//   })
+let mystyle = {
+  color: props.mode === 'dark' ? 'white' : '#042743',
+  backgroundColor: props.mode === 'dark' ? 'rgb(36 74 104)' : 'white',
+}
+/*const [btntext, setBtnText] = useState("Enable Dark Mode")
   const togglestyle = () => {
-    if (mystyle.color === "black") {
+    if (mystyl e.color === "black") {
       setmystyle({
         color: "white",
         backgroundColor: "black",
         border:'1px solid white'
       })
-      // setBtnText("enable Light Mode")
+      setBtnText("enable Light Mode")
     } else {
       setmystyle({
         color: "black",
         backgroundColor: "white",
       })
-      // setBtnText("enable Light Mode");
+       setBtnText("enable Light Mode");
     }
-  };
+  };*/
   return (
     <>
-      <div className="container my-3 ">
-        <h1>About us</h1>
-        <div>
-          <div className="accordion" id="accordionExample">
+      <div className="container"  >
+        <h1 className="my-3" style={{ color: props.mode === 'dark' ? 'white' : '#042743' }}>About us</h1>
+        <div className="accordion" id="accordionExample">
             <div className="accordion-item">
               <h2 className="accordion-header" id="headingOne">
                 <button
@@ -38,7 +42,7 @@ export default function About() {
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
-                  Accordion Item #1
+                  Analyze your text
                 </button>
               </h2>
               <div
@@ -60,7 +64,7 @@ export default function About() {
                 </div>
               </div>
             </div>
-            <div className="accordion-item">
+            <div className="accordion-item" style={mystyle}>
               <h2 className="accordion-header" id="headingTwo">
                 <button
                   className="accordion-button collapsed"
@@ -71,7 +75,7 @@ export default function About() {
                   aria-expanded="false"
                   aria-controls="collapseTwo"
                 >
-                  Accordion Item #2
+                  free to use
                 </button>
               </h2>
               <div
@@ -104,7 +108,7 @@ export default function About() {
                   aria-expanded="false"
                   aria-controls="collapseThree"
                 >
-                  Accordion Item #3
+                  browser compatible
                 </button>
               </h2>
               <div
@@ -127,14 +131,8 @@ export default function About() {
               </div>
             </div>
           </div>
-        </div>
-        <button
-          type="button"
-          onClick={togglestyle}
-          className="btn btn-primary my-2"
-        >
-          enable dark mode
-        </button>
+        
+        
       </div>
     </>
   );
